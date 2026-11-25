@@ -17,6 +17,14 @@ class TestShortener(unittest.TestCase):
     def test_first_code_is_1(self):
         self.assertEqual(self.s.shorten("https://www.yonsei.ac.kr"), "1")
 
+    def test_code_sequence_boundaries(self):
+        codes = [self.s.shorten(f"https://example.com/{i}") for i in range(63)]
+        self.assertEqual(codes[0], "1")   # 1번째 URL -> encode(1)
+        self.assertEqual(codes[1], "2")   # 2번째 URL -> encode(2)
+        self.assertEqual(codes[60], "Z")  # 61번째 URL -> encode(61)
+        self.assertEqual(codes[61], "10") # 62번째 URL -> encode(62)
+        self.assertEqual(codes[62], "11") # 63번째 URL -> encode(63)
+
     def test_round_trip(self):
         urls = [f"https://example.com/{i}" for i in range(200)]
         codes = [self.s.shorten(u) for u in urls]
@@ -38,6 +46,8 @@ class TestShortener(unittest.TestCase):
 
     def test_invalid_urls(self):
         for bad in ["ftp://a.com", "www.a.com", "http://", "https://a b",
+                    "https://a\tb", "https://a\nb",
+                    "https://example.com/한글",
                     "https://" + "a" * 2041, ""]:
             with self.assertRaises(ValueError, msg=bad):
                 self.s.shorten(bad)

@@ -21,6 +21,8 @@ def validate(url):
         raise ValueError("주소가 비어 있습니다")
     if any(c.isspace() for c in url):
         raise ValueError("URL 안에 공백이 있습니다")
+    if not url.isascii():
+        raise ValueError("URL에 ASCII가 아닌 문자가 있습니다")
     return url
 
 
