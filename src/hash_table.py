@@ -15,6 +15,17 @@ def horner_hash(key, m):
     return h
 
 
+def horner_steps(key, m):
+    """호너 해시를 한 글자씩 계산한 과정 [(이전 h, 글자, 다음 h), ...]."""
+    steps = []
+    h = 0
+    for c in key:
+        nh = (R * h + ord(c)) % m
+        steps.append((h, c, nh))
+        h = nh
+    return steps
+
+
 class _Node:
     __slots__ = ("key", "value", "next")
 
@@ -46,6 +57,17 @@ class HashTable:
     @property
     def load_factor(self):
         return self._n / self._m
+
+    def chains(self):
+        """칸마다 [(키, 값), ...]를 리스트의 맨 앞 노드부터 돌려준다."""
+        out = []
+        for node in self._heads:
+            items = []
+            while node is not None:
+                items.append((node.key, node.value))
+                node = node.next
+            out.append(items)
+        return out
 
     def _node(self, key):
         """(key가 있는 노드 또는 None, 비교한 노드 수)"""

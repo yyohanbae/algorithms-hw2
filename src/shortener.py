@@ -33,6 +33,11 @@ class Shortener:
     def __len__(self):
         return len(self._url_of)
 
+    @property
+    def url_table(self):
+        """URL -> 코드 해시 테이블. /table 화면이 이 테이블을 그린다."""
+        return self._code_of
+
     def shorten(self, url):
         url = validate(url)
         code = self._code_of.get(url)
