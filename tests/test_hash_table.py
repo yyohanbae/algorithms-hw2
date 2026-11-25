@@ -44,15 +44,22 @@ class TestHashTable(unittest.TestCase):
     def test_update_does_not_grow(self):
         t = self.make()
         t.put("a", 1)
+        cap = t.capacity
         t.put("a", 9)
         self.assertEqual(t.get("a"), 9)
         self.assertEqual(len(t), 1)
+        self.assertEqual(t.capacity, cap)
 
     def test_contains(self):
         t = self.make()
         t.put("a", 1)
         self.assertIn("a", t)
         self.assertNotIn("b", t)
+
+    def test_missing_key_returns_none(self):
+        t = self.make()
+        self.assertIsNone(t.get("missing"))
+        self.assertNotIn("missing", t)
 
     def test_collisions_share_a_chain(self):
         # spot과 post는 M=97에서 같은 칸(49)이다. 새 키가 리스트 맨 앞에 온다.
@@ -87,6 +94,16 @@ class TestHashTable(unittest.TestCase):
         self.assertLessEqual(t.load_factor, 1.0)
         for i in range(1000):
             self.assertEqual(t.get(f"key{i}"), i)
+
+    def test_resize_boundary(self):
+        t = self.make()  # 기본 설정: capacity=16, max_load=1.0
+        for i in range(16):
+            t.put(f"k{i}", i)
+        self.assertEqual(t.capacity, 16)
+        t.put("k16", 16)
+        self.assertEqual(t.capacity, 32)
+        for i in range(17):
+            self.assertEqual(t.get(f"k{i}"), i)
 
 
 if __name__ == "__main__":
@@ -132,3 +149,13 @@ class TestHashTableOnProbing(TestHashTable):
         self.assertLessEqual(t.load_factor, 0.5)
         for i in range(1000):
             self.assertEqual(t.get(f"key{i}"), i)
+
+    def test_resize_boundary(self):
+        t = self.make()  # 기본 설정: capacity=16, max_load=0.5
+        for i in range(8):
+            t.put(f"k{i}", i)
+        self.assertEqual(t.capacity, 16)
+        t.put("k8", 8)
+        self.assertEqual(t.capacity, 32)
+        for i in range(9):
+            self.assertEqual(t.get(f"k{i}"), i)
