@@ -5,7 +5,7 @@
   GET  /table     현재 해시 테이블: 칸마다 연결 리스트와 호너 해시 계산 근거
   GET  /<코드>    원래 URL로 302 이동
 
-실행: make serve
+실행: make serve  (Codespaces에서는 아래 '포트' 탭에 8000이 뜬다)
 저장은 메모리에만 한다. 서버를 끄면 링크가 사라진다.
 """
 
@@ -14,7 +14,8 @@ import html
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs
 
-from hash_table import horner_hash, horner_steps
+from hash_table import HashTable, horner_hash, horner_steps
+from probing_table import ProbingHashTable
 from shortener import Shortener
 
 store = Shortener()
@@ -92,12 +93,34 @@ def chains_html(t, base):
     return head + "".join(rows) + "</table>"
 
 
+
+def probing_html(t, base):
+    """선형 탐지: 칸마다 키 하나. 처음 계산한 칸에서 몇 칸을 들여다보고 여기에 왔는지 보인다."""
+    m = t.capacity
+    rows = []
+    for i, item in enumerate(t.slots()):
+        if item is None:
+            rows.append(f'<tr><td>{i}</td><td colspan="2" class="empty">비어 있음</td></tr>')
+            continue
+        k, v = item
+        path = t.probe_path(k)
+        moved = "바로 이 칸" if len(path) == 1 else f"{len(path)}칸을 들여다봄"
+        extra = f"<br>들여다본 칸: {' → '.join(map(str, path))} ({moved})"
+        rows.append(f'<tr><td>{i}</td><td>{len(path)}</td><td>{node_html(k, v, base, m, extra)}</td></tr>')
+    head = ("<p>원본 URL을 키로 호너 해시를 계산하고, 그 칸이 차 있으면 다음 칸으로 가는 선형 탐지입니다. "
+            "끝 칸 다음은 0번 칸입니다.</p>"
+            f"<p>{len(t)}개 항목 / {m}개 칸 · 적재율 {t.load_factor:.2f}</p>"
+            "<table><tr><th>칸</th><th>탐지 수</th><th>URL 키, 짧은 코드, 들여다본 칸과 계산 근거</th></tr>")
+    return head + "".join(rows) + "</table>"
+
+
 def table_html(t, base):
-    return chains_html(t, base)
+    return probing_html(t, base) if isinstance(t, ProbingHashTable) else chains_html(t, base)
 
 
 class Handler(BaseHTTPRequestHandler):
     def base_url(self):
+        # Codespaces는 프록시 뒤에 있다. Host만 보면 localhost:8000이 찍힌다.
         host = self.headers.get("X-Forwarded-Host") or self.headers.get("Host", "localhost")
         proto = self.headers.get("X-Forwarded-Proto", "http")
         return f"{proto}://{host}"
@@ -152,7 +175,12 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--port", type=int, default=8000)
-    port = parser.parse_args().port
+    parser.add_argument("--table", choices=["chain", "probe"], default="chain",
+                        help="chain: 개별 체이닝, probe: 선형 탐지")
+    args = parser.parse_args()
+    port = args.port
+    global store
+    store = Shortener(table=ProbingHashTable if args.table == "probe" else HashTable)
     server = ThreadingHTTPServer(("0.0.0.0", port), Handler)
     print(f"http://localhost:{port} 에서 듣는 중. 끄려면 Ctrl+C")
     server.serve_forever()

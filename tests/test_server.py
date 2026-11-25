@@ -65,6 +65,20 @@ class TestServer(unittest.TestCase):
         self.assertIn("https://github.com", data)
         self.assertIn("ord(&#x27;h&#x27;)=104", data)  # 호너 계산 근거
 
+    def test_table_page_probing(self):
+        from probing_table import ProbingHashTable
+        from shortener import Shortener
+        saved = server.store
+        server.store = Shortener(table=ProbingHashTable)
+        try:
+            self.shorten("https://github.com")
+            res, data = self.request("GET", "/table")
+            self.assertEqual(res.status, 200)
+            self.assertIn("선형 탐지", data)
+            self.assertIn("들여다본 칸", data)
+        finally:
+            server.store = saved
+
     def test_bad_url(self):
         res, _ = self.shorten("ftp://a.com")
         self.assertEqual(res.status, 400)
