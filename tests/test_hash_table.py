@@ -7,6 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from hash_table import HashTable, horner_hash  # noqa: E402
+from probing_table import ProbingHashTable  # noqa: E402
 
 
 class TestHornerHash(unittest.TestCase):
@@ -27,8 +28,12 @@ class TestHornerHash(unittest.TestCase):
 
 
 class TestHashTable(unittest.TestCase):
+    table_cls = HashTable
+
+    def make(self, *args, **kwargs):
+        return self.table_cls(*args, **kwargs)
     def test_put_get(self):
-        t = HashTable()
+        t = self.make()
         t.put("a", 1)
         t.put("b", 2)
         self.assertEqual(t.get("a"), 1)
@@ -37,28 +42,28 @@ class TestHashTable(unittest.TestCase):
         self.assertEqual(len(t), 2)
 
     def test_update_does_not_grow(self):
-        t = HashTable()
+        t = self.make()
         t.put("a", 1)
         t.put("a", 9)
         self.assertEqual(t.get("a"), 9)
         self.assertEqual(len(t), 1)
 
     def test_contains(self):
-        t = HashTable()
+        t = self.make()
         t.put("a", 1)
         self.assertIn("a", t)
         self.assertNotIn("b", t)
 
     def test_collisions_share_a_chain(self):
         # spot과 post는 M=97에서 같은 칸(49)이다. 새 키가 리스트 맨 앞에 온다.
-        t = HashTable(capacity=97, max_load=None)
+        t = self.make(capacity=97, max_load=None)
         t.put("spot", 1)
         t.put("post", 2)
         self.assertEqual(t.find("post"), (2, 1))
         self.assertEqual(t.find("spot"), (1, 2))
 
     def test_missing_key(self):
-        t = HashTable(capacity=97, max_load=None)
+        t = self.make(capacity=97, max_load=None)
         self.assertEqual(t.find("stop"), (None, 0))  # 빈 칸: 비교한 노드 0개
         t.put("spot", 1)
         t.put("post", 2)
@@ -66,7 +71,7 @@ class TestHashTable(unittest.TestCase):
         self.assertIsNone(t.get("opts"))
 
     def test_fixed_table_goes_past_load_1(self):
-        t = HashTable(capacity=3, max_load=None)
+        t = self.make(capacity=3, max_load=None)
         for i in range(10):
             t.put(f"k{i}", i)
         self.assertEqual(t.capacity, 3)
@@ -75,7 +80,7 @@ class TestHashTable(unittest.TestCase):
             self.assertEqual(t.get(f"k{i}"), i)
 
     def test_resize_keeps_all_keys(self):
-        t = HashTable(capacity=4, max_load=1.0)
+        t = self.make(capacity=4, max_load=1.0)
         for i in range(1000):
             t.put(f"key{i}", i)
         self.assertEqual(len(t), 1000)
@@ -86,3 +91,44 @@ class TestHashTable(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestHashTableOnProbing(TestHashTable):
+    table_cls = ProbingHashTable
+
+    def test_collisions_share_a_chain(self):
+        # spot과 post는 M=97에서 같은 칸(49)이다. 선형 탐지는 다음 칸을 본다.
+        t = self.make(capacity=97, max_load=None)
+        t.put("spot", 1)
+        t.put("post", 2)
+        self.assertEqual(t.find("spot"), (1, 1))
+        self.assertEqual(t.find("post"), (2, 2))
+
+    def test_missing_key(self):
+        t = self.make(capacity=97, max_load=None)
+        self.assertEqual(t.find("stop"), (None, 1))  # 빈 칸: 1번 봄
+        t.put("spot", 1)
+        t.put("post", 2)
+        self.assertEqual(t.find("tops"), (None, 1))  # tops는 3번 칸, 비어 있음
+        self.assertIsNone(t.get("opts"))
+
+    def test_fixed_table_goes_past_load_1(self):
+        # 선형 탐지는 칸 수 이상 넣을 수 없다.
+        t = self.make(capacity=3, max_load=None)
+        for k in "abc":
+            t.put(k, ord(k))
+        self.assertEqual(t.capacity, 3)
+        self.assertAlmostEqual(t.load_factor, 1.0)
+        with self.assertRaises(OverflowError):
+            t.put("d", 0)
+        for k in "abc":
+            self.assertEqual(t.get(k), ord(k))
+
+    def test_resize_keeps_all_keys(self):
+        t = self.make(capacity=4, max_load=0.5)
+        for i in range(1000):
+            t.put(f"key{i}", i)
+        self.assertEqual(len(t), 1000)
+        self.assertLessEqual(t.load_factor, 0.5)
+        for i in range(1000):
+            self.assertEqual(t.get(f"key{i}"), i)

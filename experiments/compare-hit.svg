@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="sans-serif" font-size="12">
+<rect width="640" height="400" fill="#fbfbf9"/>
+<text x="56" y="22" fill="#24292f" font-size="14" font-weight="bold">성공 탐색의 평균 비용</text>
+<line x1="56" x2="470" y1="352.0" y2="352.0" stroke="#dfe1e4"/>
+<text x="48" y="356.0" text-anchor="end" fill="#6e7781">0</text>
+<line x1="56" x2="470" y1="300.0" y2="300.0" stroke="#dfe1e4"/>
+<text x="48" y="304.0" text-anchor="end" fill="#6e7781">1</text>
+<line x1="56" x2="470" y1="248.0" y2="248.0" stroke="#dfe1e4"/>
+<text x="48" y="252.0" text-anchor="end" fill="#6e7781">2</text>
+<line x1="56" x2="470" y1="196.0" y2="196.0" stroke="#dfe1e4"/>
+<text x="48" y="200.0" text-anchor="end" fill="#6e7781">3</text>
+<line x1="56" x2="470" y1="144.0" y2="144.0" stroke="#dfe1e4"/>
+<text x="48" y="148.0" text-anchor="end" fill="#6e7781">4</text>
+<line x1="56" x2="470" y1="92.0" y2="92.0" stroke="#dfe1e4"/>
+<text x="48" y="96.0" text-anchor="end" fill="#6e7781">5</text>
+<line x1="56" x2="470" y1="40.0" y2="40.0" stroke="#dfe1e4"/>
+<text x="48" y="44.0" text-anchor="end" fill="#6e7781">6</text>
+<text x="56.0" y="370" text-anchor="middle" fill="#6e7781">0</text>
+<text x="159.5" y="370" text-anchor="middle" fill="#6e7781">0.25</text>
+<text x="263.0" y="370" text-anchor="middle" fill="#6e7781">0.5</text>
+<text x="366.5" y="370" text-anchor="middle" fill="#6e7781">0.75</text>
+<text x="470.0" y="370" text-anchor="middle" fill="#6e7781">1</text>
+<text x="263.0" y="390" text-anchor="middle" fill="#24292f">적재율 α</text>
+<polyline points="97.4,297.5 138.8,295.5 180.2,291.6 221.6,289.4 263.0,287.3 304.4,283.9 345.8,280.5 387.2,279.7 407.9,278.5 428.6,277.0" fill="none" stroke="#0072B2" stroke-width="2"/>
+<circle cx="97.4" cy="297.5" r="3" fill="#0072B2"/>
+<circle cx="138.8" cy="295.5" r="3" fill="#0072B2"/>
+<circle cx="180.2" cy="291.6" r="3" fill="#0072B2"/>
+<circle cx="221.6" cy="289.4" r="3" fill="#0072B2"/>
+<circle cx="263.0" cy="287.3" r="3" fill="#0072B2"/>
+<circle cx="304.4" cy="283.9" r="3" fill="#0072B2"/>
+<circle cx="345.8" cy="280.5" r="3" fill="#0072B2"/>
+<circle cx="387.2" cy="279.7" r="3" fill="#0072B2"/>
+<circle cx="407.9" cy="278.5" r="3" fill="#0072B2"/>
+<circle cx="428.6" cy="277.0" r="3" fill="#0072B2"/>
+<line x1="486" x2="510" y1="50" y2="50" stroke="#0072B2" stroke-width="2"/>
+<text x="516" y="54" fill="#24292f">체이닝 · 실험</text>
+<polyline points="97.4,297.4 138.8,294.8 180.2,292.2 221.6,289.6 263.0,287.0 304.4,284.4 345.8,281.8 387.2,279.2 407.9,277.9 428.6,276.6" fill="none" stroke="#0072B2" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="486" x2="510" y1="70" y2="70" stroke="#0072B2" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="516" y="74" fill="#24292f">체이닝 · 이론</text>
+<polyline points="97.4,297.5 138.8,294.5 180.2,288.0 221.6,282.7 263.0,276.1 304.4,257.6 345.8,236.3 387.2,197.4 407.9,161.6 428.6,66.4" fill="none" stroke="#D55E00" stroke-width="2"/>
+<circle cx="97.4" cy="297.5" r="3" fill="#D55E00"/>
+<circle cx="138.8" cy="294.5" r="3" fill="#D55E00"/>
+<circle cx="180.2" cy="288.0" r="3" fill="#D55E00"/>
+<circle cx="221.6" cy="282.7" r="3" fill="#D55E00"/>
+<circle cx="263.0" cy="276.1" r="3" fill="#D55E00"/>
+<circle cx="304.4" cy="257.6" r="3" fill="#D55E00"/>
+<circle cx="345.8" cy="236.3" r="3" fill="#D55E00"/>
+<circle cx="387.2" cy="197.4" r="3" fill="#D55E00"/>
+<circle cx="407.9" cy="161.6" r="3" fill="#D55E00"/>
+<circle cx="428.6" cy="66.4" r="3" fill="#D55E00"/>
+<line x1="486" x2="510" y1="90" y2="90" stroke="#D55E00" stroke-width="2"/>
+<text x="516" y="94" fill="#24292f">선형 탐지 · 실험</text>
+<polyline points="97.4,297.1 138.8,293.5 180.2,288.9 221.6,282.7 263.0,274.0 304.4,261.0 345.8,239.3 387.2,196.0 407.9,152.7 428.6,66.0" fill="none" stroke="#D55E00" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="486" x2="510" y1="110" y2="110" stroke="#D55E00" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="516" y="114" fill="#24292f">선형 탐지 · 이론</text>
+</svg>

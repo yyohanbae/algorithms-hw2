@@ -6,6 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
+from probing_table import ProbingHashTable  # noqa: E402
 from shortener import Shortener  # noqa: E402
 
 
@@ -51,6 +52,13 @@ class TestShortener(unittest.TestCase):
         self.assertIsNone(self.s.expand("zzz"))
         self.assertIsNone(self.s.expand("!!"))
         self.assertIsNone(self.s.expand(""))
+
+
+class TestShortenerWithProbing(TestShortener):
+    """같은 테스트를 선형 탐지 테이블로 한 번 더 돌린다."""
+
+    def setUp(self):
+        self.s = Shortener(table=ProbingHashTable)
 
 
 if __name__ == "__main__":
