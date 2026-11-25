@@ -1,0 +1,291 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Length 6464 >>
+stream
+BT /F2 16 Tf 50.00 750.00 Td (HW2 Step 8: Linear Probing and Comparison Report) Tj ET
+BT /F1 9 Tf 50.00 730.00 Td (Repository: yyohanbae/algorithms-hw2  |  Branch flow: git-flow \(develop/feature/*\)) Tj ET
+1.00 w 50.00 724.00 m 562.00 724.00 l S
+BT /F2 12 Tf 50.00 705.00 Td (1. Implementation Summary) Tj ET
+BT /F1 9 Tf 55.00 688.00 Td (- Added ProbingHashTable \(src/probing_table.py\) with same interface as HashTable:) Tj ET
+BT /F1 9 Tf 55.00 674.00 Td (  put/get/find/__len__/__contains__/capacity/load_factor, plus slots\(\) and probe_path\(\).) Tj ET
+BT /F1 9 Tf 55.00 660.00 Td (- Linear probing: on collision, scan i, i+1, ..., wrapping from last slot to slot 0.) Tj ET
+BT /F1 9 Tf 55.00 646.00 Td (- Full table: put raises OverflowError when no empty slot; existing key update still works.) Tj ET
+BT /F1 9 Tf 55.00 632.00 Td (- Shortener accepts table class \(table=HashTable or ProbingHashTable\); tests run on both.) Tj ET
+BT /F1 9 Tf 55.00 618.00 Td (- Server supports --table chain|probe and /table shows probed slots and Horner hash trace.) Tj ET
+BT /F1 9 Tf 55.00 604.00 Td (- No dict/set/hash\(\) used in src/; validation and git-flow rules preserved.) Tj ET
+BT /F2 12 Tf 50.00 582.00 Td (2. Comparison Experiment) Tj ET
+BT /F1 9 Tf 55.00 564.00 Td (Fixed M=4093, max_load=None, same random URL keys per alpha, SEED=2026, misses=2000.) Tj ET
+BT /F1 9 Tf 55.00 550.00 Td (Cost unit: chaining = compared nodes; probing = inspected slots \(same comparison unit\).) Tj ET
+BT /F2 9 Tf 50.00 530.00 Td (Measured vs theory \(Uniform Hashing / linear probing\):) Tj ET
+BT /F2 7 Tf 50.00 516.00 Td (alpha) Tj ET
+BT /F2 7 Tf 95.00 516.00 Td (chain hit) Tj ET
+BT /F2 7 Tf 150.00 516.00 Td (chain miss) Tj ET
+BT /F2 7 Tf 205.00 516.00 Td (probe hit) Tj ET
+BT /F2 7 Tf 265.00 516.00 Td (probe miss) Tj ET
+BT /F2 7 Tf 325.00 516.00 Td (th c.hit) Tj ET
+BT /F2 7 Tf 385.00 516.00 Td (th c.miss) Tj ET
+BT /F2 7 Tf 440.00 516.00 Td (th p.hit) Tj ET
+BT /F2 7 Tf 495.00 516.00 Td (th p.miss) Tj ET
+0.50 w 50.00 510.00 m 562.00 510.00 l S
+BT /F1 7 Tf 50.00 498.00 Td (0.10) Tj ET
+BT /F1 7 Tf 95.00 498.00 Td (1.049) Tj ET
+BT /F1 7 Tf 150.00 498.00 Td (0.099) Tj ET
+BT /F1 7 Tf 205.00 498.00 Td (1.049) Tj ET
+BT /F1 7 Tf 265.00 498.00 Td (1.117) Tj ET
+BT /F1 7 Tf 325.00 498.00 Td (1.050) Tj ET
+BT /F1 7 Tf 385.00 498.00 Td (0.100) Tj ET
+BT /F1 7 Tf 440.00 498.00 Td (1.056) Tj ET
+BT /F1 7 Tf 495.00 498.00 Td (1.117) Tj ET
+BT /F1 7 Tf 50.00 486.00 Td (0.20) Tj ET
+BT /F1 7 Tf 95.00 486.00 Td (1.087) Tj ET
+BT /F1 7 Tf 150.00 486.00 Td (0.206) Tj ET
+BT /F1 7 Tf 205.00 486.00 Td (1.106) Tj ET
+BT /F1 7 Tf 265.00 486.00 Td (1.293) Tj ET
+BT /F1 7 Tf 325.00 486.00 Td (1.100) Tj ET
+BT /F1 7 Tf 385.00 486.00 Td (0.200) Tj ET
+BT /F1 7 Tf 440.00 486.00 Td (1.125) Tj ET
+BT /F1 7 Tf 495.00 486.00 Td (1.281) Tj ET
+BT /F1 7 Tf 50.00 474.00 Td (0.30) Tj ET
+BT /F1 7 Tf 95.00 474.00 Td (1.162) Tj ET
+BT /F1 7 Tf 150.00 474.00 Td (0.312) Tj ET
+BT /F1 7 Tf 205.00 474.00 Td (1.231) Tj ET
+BT /F1 7 Tf 265.00 474.00 Td (1.521) Tj ET
+BT /F1 7 Tf 325.00 474.00 Td (1.150) Tj ET
+BT /F1 7 Tf 385.00 474.00 Td (0.300) Tj ET
+BT /F1 7 Tf 440.00 474.00 Td (1.214) Tj ET
+BT /F1 7 Tf 495.00 474.00 Td (1.520) Tj ET
+BT /F1 7 Tf 50.00 462.00 Td (0.40) Tj ET
+BT /F1 7 Tf 95.00 462.00 Td (1.204) Tj ET
+BT /F1 7 Tf 150.00 462.00 Td (0.409) Tj ET
+BT /F1 7 Tf 205.00 462.00 Td (1.333) Tj ET
+BT /F1 7 Tf 265.00 462.00 Td (1.924) Tj ET
+BT /F1 7 Tf 325.00 462.00 Td (1.200) Tj ET
+BT /F1 7 Tf 385.00 462.00 Td (0.400) Tj ET
+BT /F1 7 Tf 440.00 462.00 Td (1.333) Tj ET
+BT /F1 7 Tf 495.00 462.00 Td (1.889) Tj ET
+BT /F1 7 Tf 50.00 450.00 Td (0.50) Tj ET
+BT /F1 7 Tf 95.00 450.00 Td (1.245) Tj ET
+BT /F1 7 Tf 150.00 450.00 Td (0.513) Tj ET
+BT /F1 7 Tf 205.00 450.00 Td (1.460) Tj ET
+BT /F1 7 Tf 265.00 450.00 Td (2.574) Tj ET
+BT /F1 7 Tf 325.00 450.00 Td (1.250) Tj ET
+BT /F1 7 Tf 385.00 450.00 Td (0.500) Tj ET
+BT /F1 7 Tf 440.00 450.00 Td (1.500) Tj ET
+BT /F1 7 Tf 495.00 450.00 Td (2.500) Tj ET
+BT /F1 7 Tf 50.00 438.00 Td (0.60) Tj ET
+BT /F1 7 Tf 95.00 438.00 Td (1.309) Tj ET
+BT /F1 7 Tf 150.00 438.00 Td (0.611) Tj ET
+BT /F1 7 Tf 205.00 438.00 Td (1.816) Tj ET
+BT /F1 7 Tf 265.00 438.00 Td (3.908) Tj ET
+BT /F1 7 Tf 325.00 438.00 Td (1.300) Tj ET
+BT /F1 7 Tf 385.00 438.00 Td (0.600) Tj ET
+BT /F1 7 Tf 440.00 438.00 Td (1.750) Tj ET
+BT /F1 7 Tf 495.00 438.00 Td (3.625) Tj ET
+BT /F1 7 Tf 50.00 426.00 Td (0.70) Tj ET
+BT /F1 7 Tf 95.00 426.00 Td (1.374) Tj ET
+BT /F1 7 Tf 150.00 426.00 Td (0.697) Tj ET
+BT /F1 7 Tf 205.00 426.00 Td (2.225) Tj ET
+BT /F1 7 Tf 265.00 426.00 Td (5.520) Tj ET
+BT /F1 7 Tf 325.00 426.00 Td (1.350) Tj ET
+BT /F1 7 Tf 385.00 426.00 Td (0.700) Tj ET
+BT /F1 7 Tf 440.00 426.00 Td (2.167) Tj ET
+BT /F1 7 Tf 495.00 426.00 Td (6.056) Tj ET
+BT /F1 7 Tf 50.00 414.00 Td (0.80) Tj ET
+BT /F1 7 Tf 95.00 414.00 Td (1.391) Tj ET
+BT /F1 7 Tf 150.00 414.00 Td (0.848) Tj ET
+BT /F1 7 Tf 205.00 414.00 Td (2.974) Tj ET
+BT /F1 7 Tf 265.00 414.00 Td (17.203) Tj ET
+BT /F1 7 Tf 325.00 414.00 Td (1.400) Tj ET
+BT /F1 7 Tf 385.00 414.00 Td (0.800) Tj ET
+BT /F1 7 Tf 440.00 414.00 Td (3.000) Tj ET
+BT /F1 7 Tf 495.00 414.00 Td (13.000) Tj ET
+BT /F1 7 Tf 50.00 402.00 Td (0.85) Tj ET
+BT /F1 7 Tf 95.00 402.00 Td (1.413) Tj ET
+BT /F1 7 Tf 150.00 402.00 Td (0.858) Tj ET
+BT /F1 7 Tf 205.00 402.00 Td (3.661) Tj ET
+BT /F1 7 Tf 265.00 402.00 Td (18.358) Tj ET
+BT /F1 7 Tf 325.00 402.00 Td (1.425) Tj ET
+BT /F1 7 Tf 385.00 402.00 Td (0.850) Tj ET
+BT /F1 7 Tf 440.00 402.00 Td (3.833) Tj ET
+BT /F1 7 Tf 495.00 402.00 Td (22.722) Tj ET
+BT /F1 7 Tf 50.00 390.00 Td (0.90) Tj ET
+BT /F1 7 Tf 95.00 390.00 Td (1.443) Tj ET
+BT /F1 7 Tf 150.00 390.00 Td (0.866) Tj ET
+BT /F1 7 Tf 205.00 390.00 Td (5.493) Tj ET
+BT /F1 7 Tf 265.00 390.00 Td (52.745) Tj ET
+BT /F1 7 Tf 325.00 390.00 Td (1.450) Tj ET
+BT /F1 7 Tf 385.00 390.00 Td (0.900) Tj ET
+BT /F1 7 Tf 440.00 390.00 Td (5.500) Tj ET
+BT /F1 7 Tf 495.00 390.00 Td (50.500) Tj ET
+BT /F2 12 Tf 50.00 370.00 Td (3. Observation) Tj ET
+BT /F1 9 Tf 55.00 352.00 Td (Chaining grows slowly: expected success ~1+alpha/2, miss ~alpha. Measured values follow theory.) Tj ET
+BT /F1 9 Tf 55.00 338.00 Td (Linear probing grows much faster near high load: primary clustering causes long probe sequences.) Tj ET
+BT /F1 9 Tf 55.00 324.00 Td (At alpha=0.9, probing hit/miss costs spike \(5.49 / 52.74\) while chaining remains small \(1.44 / 0.87\).) Tj ET
+BT /F1 9 Tf 55.00 310.00 Td (This matches theory: E[hit]=1/2*\(1+1/\(1-alpha\)\), E[miss]=1/2*\(1+1/\(1-alpha\)^2\).) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
+5 0 obj
+<< /Length 8411 >>
+stream
+BT /F2 12 Tf 50.00 750.00 Td (4. Cost vs Load Factor \(measured points, theory dashed\)) Tj ET
+1.00 w 50.00 744.00 m 562.00 744.00 l S
+BT /F2 10 Tf 60.00 680.00 Td (Successful search average cost) Tj ET
+0.80 w 60.00 500.00 m 60.00 670.00 l S
+0.80 w 60.00 500.00 m 400.00 500.00 l S
+0.20 w 60.00 500.00 m 400.00 500.00 l S
+BT /F1 7 Tf 38.00 497.00 Td (0) Tj ET
+0.20 w 60.00 534.00 m 400.00 534.00 l S
+BT /F1 7 Tf 38.00 531.00 Td (1.2) Tj ET
+0.20 w 60.00 568.00 m 400.00 568.00 l S
+BT /F1 7 Tf 38.00 565.00 Td (2.4) Tj ET
+0.20 w 60.00 602.00 m 400.00 602.00 l S
+BT /F1 7 Tf 38.00 599.00 Td (3.6) Tj ET
+0.20 w 60.00 636.00 m 400.00 636.00 l S
+BT /F1 7 Tf 38.00 633.00 Td (4.8) Tj ET
+0.20 w 60.00 670.00 m 400.00 670.00 l S
+BT /F1 7 Tf 38.00 667.00 Td (6) Tj ET
+0.50 w 60.00 500.00 m 60.00 503.00 l S
+BT /F1 7 Tf 54.00 488.00 Td (0) Tj ET
+0.50 w 145.00 500.00 m 145.00 503.00 l S
+BT /F1 7 Tf 139.00 488.00 Td (0.25) Tj ET
+0.50 w 230.00 500.00 m 230.00 503.00 l S
+BT /F1 7 Tf 224.00 488.00 Td (0.5) Tj ET
+0.50 w 315.00 500.00 m 315.00 503.00 l S
+BT /F1 7 Tf 309.00 488.00 Td (0.75) Tj ET
+0.50 w 400.00 500.00 m 400.00 503.00 l S
+BT /F1 7 Tf 394.00 488.00 Td (1) Tj ET
+BT /F1 8 Tf 210.00 476.00 Td (load factor alpha) Tj ET
+0.000 0.450 0.700 RG 1.00 w [4 3] 0 d 94.00 529.75 m 128.00 531.17 l 162.00 532.58 l 196.00 534.00 l 230.00 535.42 l 264.00 536.83 l 298.00 538.25 l 332.00 539.67 l 349.00 540.38 l 366.00 541.08 l S
+0.000 0.450 0.700 RG 1.20 w [] 0 d 94.00 529.72 m 128.00 530.80 l 162.00 532.92 l 196.00 534.11 l 230.00 535.27 l 264.00 537.09 l 298.00 538.93 l 332.00 539.41 l 349.00 540.03 l 366.00 540.88 l S
+0.000 0.450 0.700 rg 92.20 527.92 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 126.20 529.00 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 160.20 531.12 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 194.20 532.31 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 228.20 533.48 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 262.20 535.29 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 296.20 537.13 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 330.20 537.61 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 347.20 538.24 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 364.20 539.09 3.60 3.60 re f 0.000 0.450 0.700 RG
+1.20 w 410.00 660.00 m 430.00 660.00 l S
+BT /F1 7 Tf 434.00 657.00 Td (Chaining measured) Tj ET
+0.000 0.450 0.700 RG 1.00 w [4 3] 0 d 410.00 648.00 m 430.00 648.00 l S
+BT /F1 7 Tf 434.00 645.00 Td (Chaining theory) Tj ET
+0.840 0.370 0.000 RG 1.00 w [4 3] 0 d 94.00 529.92 m 128.00 531.88 l 162.00 534.40 l 196.00 537.77 l 230.00 542.50 l 264.00 549.58 l 298.00 561.40 l 332.00 585.00 l 349.00 608.60 l 366.00 655.83 l S
+0.840 0.370 0.000 RG 1.20 w [] 0 d 94.00 529.72 m 128.00 531.34 l 162.00 534.88 l 196.00 537.77 l 230.00 541.37 l 264.00 551.45 l 298.00 563.04 l 332.00 584.26 l 349.00 603.73 l 366.00 655.63 l S
+0.840 0.370 0.000 rg 92.20 527.92 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 126.20 529.54 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 160.20 533.08 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 194.20 535.97 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 228.20 539.57 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 262.20 549.65 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 296.20 561.24 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 330.20 582.46 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 347.20 601.93 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 364.20 653.84 3.60 3.60 re f 0.840 0.370 0.000 RG
+1.20 w 410.00 632.00 m 430.00 632.00 l S
+BT /F1 7 Tf 434.00 629.00 Td (Linear probing measured) Tj ET
+0.840 0.370 0.000 RG 1.00 w [4 3] 0 d 410.00 620.00 m 430.00 620.00 l S
+BT /F1 7 Tf 434.00 617.00 Td (Linear probing theory) Tj ET
+BT /F2 10 Tf 60.00 430.00 Td (Unsuccessful search average cost) Tj ET
+0.80 w 60.00 250.00 m 60.00 420.00 l S
+0.80 w 60.00 250.00 m 400.00 250.00 l S
+0.20 w 60.00 250.00 m 400.00 250.00 l S
+BT /F1 7 Tf 38.00 247.00 Td (0) Tj ET
+0.20 w 60.00 284.00 m 400.00 284.00 l S
+BT /F1 7 Tf 38.00 281.00 Td (12) Tj ET
+0.20 w 60.00 318.00 m 400.00 318.00 l S
+BT /F1 7 Tf 38.00 315.00 Td (24) Tj ET
+0.20 w 60.00 352.00 m 400.00 352.00 l S
+BT /F1 7 Tf 38.00 349.00 Td (36) Tj ET
+0.20 w 60.00 386.00 m 400.00 386.00 l S
+BT /F1 7 Tf 38.00 383.00 Td (48) Tj ET
+0.20 w 60.00 420.00 m 400.00 420.00 l S
+BT /F1 7 Tf 38.00 417.00 Td (60) Tj ET
+0.50 w 60.00 250.00 m 60.00 253.00 l S
+BT /F1 7 Tf 54.00 238.00 Td (0) Tj ET
+0.50 w 145.00 250.00 m 145.00 253.00 l S
+BT /F1 7 Tf 139.00 238.00 Td (0.25) Tj ET
+0.50 w 230.00 250.00 m 230.00 253.00 l S
+BT /F1 7 Tf 224.00 238.00 Td (0.5) Tj ET
+0.50 w 315.00 250.00 m 315.00 253.00 l S
+BT /F1 7 Tf 309.00 238.00 Td (0.75) Tj ET
+0.50 w 400.00 250.00 m 400.00 253.00 l S
+BT /F1 7 Tf 394.00 238.00 Td (1) Tj ET
+BT /F1 8 Tf 210.00 226.00 Td (load factor alpha) Tj ET
+0.000 0.450 0.700 RG 1.00 w [4 3] 0 d 94.00 250.28 m 128.00 250.57 l 162.00 250.85 l 196.00 251.13 l 230.00 251.42 l 264.00 251.70 l 298.00 251.98 l 332.00 252.27 l 349.00 252.41 l 366.00 252.55 l S
+0.000 0.450 0.700 RG 1.20 w [] 0 d 94.00 250.28 m 128.00 250.58 l 162.00 250.88 l 196.00 251.16 l 230.00 251.45 l 264.00 251.73 l 298.00 251.97 l 332.00 252.40 l 349.00 252.43 l 366.00 252.45 l S
+0.000 0.450 0.700 rg 92.20 248.48 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 126.20 248.78 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 160.20 249.08 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 194.20 249.36 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 228.20 249.65 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 262.20 249.93 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 296.20 250.17 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 330.20 250.60 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 347.20 250.63 3.60 3.60 re f 0.000 0.450 0.700 RG
+0.000 0.450 0.700 rg 364.20 250.65 3.60 3.60 re f 0.000 0.450 0.700 RG
+1.20 w 410.00 410.00 m 430.00 410.00 l S
+BT /F1 7 Tf 434.00 407.00 Td (Chaining measured) Tj ET
+0.000 0.450 0.700 RG 1.00 w [4 3] 0 d 410.00 398.00 m 430.00 398.00 l S
+BT /F1 7 Tf 434.00 395.00 Td (Chaining theory) Tj ET
+0.840 0.370 0.000 RG 1.00 w [4 3] 0 d 94.00 253.16 m 128.00 253.63 l 162.00 254.31 l 196.00 255.35 l 230.00 257.08 l 264.00 260.27 l 298.00 267.16 l 332.00 286.83 l 349.00 314.38 l 366.00 393.08 l S
+0.840 0.370 0.000 RG 1.20 w [] 0 d 94.00 253.16 m 128.00 253.66 l 162.00 254.31 l 196.00 255.45 l 230.00 257.29 l 264.00 261.07 l 298.00 265.64 l 332.00 298.74 l 349.00 302.01 l 366.00 399.44 l S
+0.840 0.370 0.000 rg 92.20 251.36 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 126.20 251.86 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 160.20 252.51 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 194.20 253.65 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 228.20 255.49 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 262.20 259.27 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 296.20 263.84 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 330.20 296.94 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 347.20 300.21 3.60 3.60 re f 0.840 0.370 0.000 RG
+0.840 0.370 0.000 rg 364.20 397.64 3.60 3.60 re f 0.840 0.370 0.000 RG
+1.20 w 410.00 382.00 m 430.00 382.00 l S
+BT /F1 7 Tf 434.00 379.00 Td (Linear probing measured) Tj ET
+0.840 0.370 0.000 RG 1.00 w [4 3] 0 d 410.00 370.00 m 430.00 370.00 l S
+BT /F1 7 Tf 434.00 367.00 Td (Linear probing theory) Tj ET
+BT /F2 12 Tf 50.00 210.00 Td (5. Files Added/Updated) Tj ET
+BT /F1 9 Tf 55.00 192.00 Td (src/probing_table.py, tests/test_probing_table.py - linear probing implementation and tests) Tj ET
+BT /F1 9 Tf 55.00 178.00 Td (tests/test_hash_table.py, tests/test_shortener.py - hash table/shortener tests run on probing too) Tj ET
+BT /F1 9 Tf 55.00 164.00 Td (src/server.py, tests/test_server.py - /table shows probing slots/probe path and Horner trace) Tj ET
+BT /F1 9 Tf 55.00 150.00 Td (experiments/compare_experiment.py, compare.csv, compare-hit.svg, compare-miss.svg - comparison) Tj ET
+BT /F1 9 Tf 55.00 136.00 Td (report.pdf - this report \(2 pages\)) Tj ET
+BT /F2 9 Tf 50.00 114.00 Td (Conclusion: Linear probing is simple but degrades sharply at high load; chaining is more stable.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>
+endobj
+8 0 obj
+<< /Type /Catalog /Pages 7 0 R >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000015 00000 n 
+0000000085 00000 n 
+0000000160 00000 n 
+0000006676 00000 n 
+0000006812 00000 n 
+0000015275 00000 n 
+0000015411 00000 n 
+0000015474 00000 n 
+trailer
+<< /Size 9 /Root 8 0 R >>
+startxref
+15523
+%%EOF

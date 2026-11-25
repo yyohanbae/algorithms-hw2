@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="sans-serif" font-size="12">
+<rect width="640" height="400" fill="#fbfbf9"/>
+<line x1="56" x2="480" y1="352.0" y2="352.0" stroke="#dfe1e4"/>
+<text x="48" y="356.0" text-anchor="end" fill="#6e7781">0</text>
+<line x1="56" x2="480" y1="287.2" y2="287.2" stroke="#dfe1e4"/>
+<text x="48" y="291.2" text-anchor="end" fill="#6e7781">1</text>
+<line x1="56" x2="480" y1="222.4" y2="222.4" stroke="#dfe1e4"/>
+<text x="48" y="226.4" text-anchor="end" fill="#6e7781">2</text>
+<line x1="56" x2="480" y1="157.6" y2="157.6" stroke="#dfe1e4"/>
+<text x="48" y="161.6" text-anchor="end" fill="#6e7781">3</text>
+<line x1="56" x2="480" y1="92.8" y2="92.8" stroke="#dfe1e4"/>
+<text x="48" y="96.8" text-anchor="end" fill="#6e7781">4</text>
+<line x1="56" x2="480" y1="28.0" y2="28.0" stroke="#dfe1e4"/>
+<text x="48" y="32.0" text-anchor="end" fill="#6e7781">5</text>
+<text x="56.0" y="370" text-anchor="middle" fill="#6e7781">0</text>
+<text x="162.0" y="370" text-anchor="middle" fill="#6e7781">1</text>
+<text x="268.0" y="370" text-anchor="middle" fill="#6e7781">2</text>
+<text x="374.0" y="370" text-anchor="middle" fill="#6e7781">3</text>
+<text x="480.0" y="370" text-anchor="middle" fill="#6e7781">4</text>
+<text x="268.0" y="390" text-anchor="middle" fill="#24292f">적재율 α</text>
+<text x="14" y="190.0" text-anchor="middle" fill="#24292f" transform="rotate(-90 14 190.0)">평균 비교 노드 수</text>
+<polyline points="82.5,335.8 109.0,319.6 162.0,287.2 215.0,254.8 268.0,222.4 374.0,157.6 480.0,92.8" fill="none" stroke="#D55E00" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="496" x2="520" y1="38" y2="38" stroke="#D55E00" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="526" y="42" fill="#24292f">실패 · 이론</text>
+<polyline points="82.5,334.5 109.0,321.8 162.0,286.8 215.0,252.6 268.0,223.9 374.0,160.9 480.0,93.4" fill="none" stroke="#D55E00" stroke-width="2"/>
+<circle cx="82.5" cy="334.5" r="3" fill="#D55E00"/>
+<circle cx="109.0" cy="321.8" r="3" fill="#D55E00"/>
+<circle cx="162.0" cy="286.8" r="3" fill="#D55E00"/>
+<circle cx="215.0" cy="252.6" r="3" fill="#D55E00"/>
+<circle cx="268.0" cy="223.9" r="3" fill="#D55E00"/>
+<circle cx="374.0" cy="160.9" r="3" fill="#D55E00"/>
+<circle cx="480.0" cy="93.4" r="3" fill="#D55E00"/>
+<line x1="496" x2="520" y1="58" y2="58" stroke="#D55E00" stroke-width="2"/>
+<text x="526" y="62" fill="#24292f">실패 · 실험</text>
+<polyline points="82.5,279.1 109.0,271.0 162.0,254.8 215.0,238.6 268.0,222.4 374.0,190.0 480.0,157.6" fill="none" stroke="#0072B2" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="496" x2="520" y1="78" y2="78" stroke="#0072B2" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="526" y="82" fill="#24292f">성공 · 이론</text>
+<polyline points="82.5,279.6 109.0,271.8 162.0,254.4 215.0,239.0 268.0,221.9 374.0,191.6 480.0,157.6" fill="none" stroke="#0072B2" stroke-width="2"/>
+<circle cx="82.5" cy="279.6" r="3" fill="#0072B2"/>
+<circle cx="109.0" cy="271.8" r="3" fill="#0072B2"/>
+<circle cx="162.0" cy="254.4" r="3" fill="#0072B2"/>
+<circle cx="215.0" cy="239.0" r="3" fill="#0072B2"/>
+<circle cx="268.0" cy="221.9" r="3" fill="#0072B2"/>
+<circle cx="374.0" cy="191.6" r="3" fill="#0072B2"/>
+<circle cx="480.0" cy="157.6" r="3" fill="#0072B2"/>
+<line x1="496" x2="520" y1="98" y2="98" stroke="#0072B2" stroke-width="2"/>
+<text x="526" y="102" fill="#24292f">성공 · 실험</text>
+</svg>
