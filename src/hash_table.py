@@ -102,9 +102,10 @@ class HashTable:
     def _resize(self, new_m):
         old = self._heads
         self._m = new_m
-        self._n = 0
         self._heads = [None] * new_m
-        for node in old:
+        for head in old:
+            node = head
             while node is not None:
-                self.put(node.key, node.value)
+                i = horner_hash(node.key, new_m)
+                self._heads[i] = _Node(node.key, node.value, self._heads[i])
                 node = node.next
