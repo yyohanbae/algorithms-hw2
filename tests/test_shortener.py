@@ -57,6 +57,10 @@ class TestShortener(unittest.TestCase):
         self.assertEqual(len(ok), 2048)
         self.assertEqual(self.s.expand(self.s.shorten(ok)), ok)
 
+    def test_long_url_limit_after_strip(self):
+        ok = "https://" + "a" * 2040
+        self.assertEqual(self.s.expand(self.s.shorten("  " + ok + "\n")), ok)
+
     def test_unknown_code(self):
         self.s.shorten("https://a.com")
         self.assertIsNone(self.s.expand("zzz"))

@@ -105,11 +105,6 @@ class TestHashTable(unittest.TestCase):
         for i in range(17):
             self.assertEqual(t.get(f"k{i}"), i)
 
-
-if __name__ == "__main__":
-    unittest.main()
-
-
 class TestHashTableOnProbing(TestHashTable):
     table_cls = ProbingHashTable
 
@@ -159,3 +154,6 @@ class TestHashTableOnProbing(TestHashTable):
         self.assertEqual(t.capacity, 32)
         for i in range(9):
             self.assertEqual(t.get(f"k{i}"), i)
+
+if __name__ == "__main__":
+    unittest.main()
