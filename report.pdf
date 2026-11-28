@@ -1,5 +1,5 @@
 %PDF-1.4
-%âãÏÓ
+%ï¿½ï¿½ï¿½ï¿½
 1 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
 endobj
@@ -7,19 +7,21 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 3 0 obj
-<< /Length 6464 >>
+<< /Length 8324 >>
 stream
 BT /F2 16 Tf 50.00 750.00 Td (HW2 Step 8: Linear Probing and Comparison Report) Tj ET
-BT /F1 9 Tf 50.00 730.00 Td (Repository: yyohanbae/algorithms-hw2  |  Branch flow: git-flow \(develop/feature/*\)) Tj ET
+BT /F1 9 Tf 50.00 730.00 Td (https://github.com/yyohanbae/algorithms-hw2  |  Branch flow: git-flow \(develop/feature/*\)) Tj ET
 1.00 w 50.00 724.00 m 562.00 724.00 l S
 BT /F2 12 Tf 50.00 705.00 Td (1. Implementation Summary) Tj ET
-BT /F1 9 Tf 55.00 688.00 Td (- Added ProbingHashTable \(src/probing_table.py\) with same interface as HashTable:) Tj ET
-BT /F1 9 Tf 55.00 674.00 Td (  put/get/find/__len__/__contains__/capacity/load_factor, plus slots\(\) and probe_path\(\).) Tj ET
-BT /F1 9 Tf 55.00 660.00 Td (- Linear probing: on collision, scan i, i+1, ..., wrapping from last slot to slot 0.) Tj ET
-BT /F1 9 Tf 55.00 646.00 Td (- Full table: put raises OverflowError when no empty slot; existing key update still works.) Tj ET
-BT /F1 9 Tf 55.00 632.00 Td (- Shortener accepts table class \(table=HashTable or ProbingHashTable\); tests run on both.) Tj ET
-BT /F1 9 Tf 55.00 618.00 Td (- Server supports --table chain|probe and /table shows probed slots and Horner hash trace.) Tj ET
-BT /F1 9 Tf 55.00 604.00 Td (- No dict/set/hash\(\) used in src/; validation and git-flow rules preserved.) Tj ET
+BT /F1 8.5 Tf 55.00 693.00 Td (- Chaining \(src/hash_table.py\): each slot holds a linked list, new nodes go at the front,) Tj ET
+BT /F1 8.5 Tf 55.00 682.00 Td (  hash is Horner \(h = \(31*h + ord\(c\)\) % M\), and the table doubles when load factor > 1.0.) Tj ET
+BT /F1 9 Tf 55.00 667.00 Td (- Added ProbingHashTable \(src/probing_table.py\) with same interface as HashTable:) Tj ET
+BT /F1 9 Tf 55.00 655.00 Td (  put/get/find/__len__/__contains__/capacity/load_factor, plus slots\(\) and probe_path\(\).) Tj ET
+BT /F1 9 Tf 55.00 643.00 Td (- Linear probing: on collision, scan i, i+1, ..., wrapping from last slot to slot 0.) Tj ET
+BT /F1 9 Tf 55.00 631.00 Td (- Full table: put raises OverflowError when no empty slot; existing key update still works.) Tj ET
+BT /F1 9 Tf 55.00 619.00 Td (- Shortener accepts table class \(table=HashTable or ProbingHashTable\); tests run on both.) Tj ET
+BT /F1 9 Tf 55.00 607.00 Td (- Server supports --table chain|probe and /table shows probed slots and Horner hash trace.) Tj ET
+BT /F1 9 Tf 55.00 595.00 Td (- No dict/set/hash\(\) used in src/; validation and git-flow rules preserved.) Tj ET
 BT /F2 12 Tf 50.00 582.00 Td (2. Comparison Experiment) Tj ET
 BT /F1 9 Tf 55.00 564.00 Td (Fixed M=4093, max_load=None, same random URL keys per alpha, SEED=2026, misses=2000.) Tj ET
 BT /F1 9 Tf 55.00 550.00 Td (Cost unit: chaining = compared nodes; probing = inspected slots \(same comparison unit\).) Tj ET
@@ -125,10 +127,24 @@ BT /F1 7 Tf 385.00 390.00 Td (0.900) Tj ET
 BT /F1 7 Tf 440.00 390.00 Td (5.500) Tj ET
 BT /F1 7 Tf 495.00 390.00 Td (50.500) Tj ET
 BT /F2 12 Tf 50.00 370.00 Td (3. Observation) Tj ET
-BT /F1 9 Tf 55.00 352.00 Td (Chaining grows slowly: expected success ~1+alpha/2, miss ~alpha. Measured values follow theory.) Tj ET
-BT /F1 9 Tf 55.00 338.00 Td (Linear probing grows much faster near high load: primary clustering causes long probe sequences.) Tj ET
-BT /F1 9 Tf 55.00 324.00 Td (At alpha=0.9, probing hit/miss costs spike \(5.49 / 52.74\) while chaining remains small \(1.44 / 0.87\).) Tj ET
-BT /F1 9 Tf 55.00 310.00 Td (This matches theory: E[hit]=1/2*\(1+1/\(1-alpha\)\), E[miss]=1/2*\(1+1/\(1-alpha\)^2\).) Tj ET
+BT /F1 8.5 Tf 55.00 352.00 Td (Chaining grows slowly: expected success ~1+alpha/2, miss ~alpha. Measured values follow theory closely.) Tj ET
+BT /F1 8.5 Tf 55.00 340.00 Td (Linear probing matches theory at most loads but deviates at alpha=0.8 \(miss 17.2 vs 13.0\) and) Tj ET
+BT /F1 8.5 Tf 55.00 328.00 Td (0.85 \(miss 18.4 vs 22.7\); miss cost is very noisy near load 1, so one run per point is not enough.) Tj ET
+BT /F1 8.5 Tf 55.00 316.00 Td (At alpha=0.9 it is close again \(miss 52.7 vs 50.5\) and far above chaining \(0.87\).) Tj ET
+BT /F1 8.5 Tf 55.00 304.00 Td (Why probing degrades near 1: occupied slots form runs. A key whose hash lands anywhere in a run) Tj ET
+BT /F1 8.5 Tf 55.00 292.00 Td (joins its end, so longer runs grow faster. An unsuccessful search must walk to the end of the run,) Tj ET
+BT /F1 8.5 Tf 55.00 280.00 Td (and the cost 1/2*\(1+1/\(1-alpha\)^2\) blows up as alpha->1. Chaining collisions stay in separate) Tj ET
+BT /F1 8.5 Tf 55.00 268.00 Td (short lists, so its cost only grows linearly.) Tj ET
+BT /F2 11 Tf 50.00 247.00 Td (4. Where the agent was wrong) Tj ET
+BT /F1 8 Tf 55.00 231.00 Td (- Step 4: the prompt said not to implement yet, but the agent edited src/shortener.py \(added an) Tj ET
+BT /F1 8 Tf 55.00 220.00 Td (  isascii check\) so a test would pass. I saw it in the change summary and kept it because it) Tj ET
+BT /F1 8 Tf 55.00 209.00 Td (  matches my SPEC rule that non-ASCII URLs are rejected.) Tj ET
+BT /F1 8 Tf 55.00 198.00 Td (- Step 8: the agent's issue comment said the measurements match theory. Comparing the table row) Tj ET
+BT /F1 8 Tf 55.00 187.00 Td (  by row, probing miss cost differs at alpha=0.8 \(17.2 vs 13.0\) and 0.85 \(18.4 vs 22.7\). I) Tj ET
+BT /F1 8 Tf 55.00 176.00 Td (  treated this as single-run noise rather than a bug, and said so above.) Tj ET
+BT /F1 8 Tf 55.00 165.00 Td (- My own SPEC was also wrong once: I wrote that the 62nd URL gets "Z"; with serial numbers) Tj ET
+BT /F1 8 Tf 55.00 154.00 Td (  starting at 1 it is the 61st. The agent's test had the correct numbers.) Tj ET
+BT /F2 9 Tf 50.00 128.00 Td (make test: 64 tests OK) Tj ET
 endstream
 endobj
 4 0 obj
@@ -275,17 +291,17 @@ endobj
 endobj
 xref
 0 9
-0000000000 65535 f 
-0000000015 00000 n 
-0000000085 00000 n 
-0000000160 00000 n 
-0000006676 00000 n 
-0000006812 00000 n 
-0000015275 00000 n 
-0000015411 00000 n 
-0000015474 00000 n 
+0000000000 65535 f
+0000000023 00000 n
+0000000093 00000 n
+0000000168 00000 n
+0000008544 00000 n
+0000008680 00000 n
+0000017143 00000 n
+0000017279 00000 n
+0000017342 00000 n
 trailer
 << /Size 9 /Root 8 0 R >>
 startxref
-15523
+17391
 %%EOF
